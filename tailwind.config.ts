@@ -12,7 +12,7 @@ const config: Config = {
       },
       colors: {
         cream: {
-          DEFAULT: "#FAF7F1",
+          DEFAULT: "#F4F4F4",
           50: "#FFFFFF",
           100: "#FAF7F1",
           200: "#F3EEE2",

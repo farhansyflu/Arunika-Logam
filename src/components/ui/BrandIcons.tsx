@@ -1,3 +1,5 @@
+import { MapPin } from "lucide-react";
+
 export function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -23,3 +25,9 @@ export function InstagramIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function MapIcon({ className }: { className?: string }) {
+  return (
+      <MapPin>
+      </MapPin>
+  );}

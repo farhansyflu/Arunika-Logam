@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import { SITE, waLink } from "@/lib/constants";
-import { WhatsAppIcon, InstagramIcon } from "@/components/ui/BrandIcons";
+import { WhatsAppIcon, InstagramIcon, MapIcon } from "@/components/ui/BrandIcons";
 import { Mail } from "lucide-react";
 import Image from "next/image";
-import Reveal from "@/components/ui/Reveal";
 
 export const metadata: Metadata = { title: "Kontak" };
 
@@ -31,10 +30,12 @@ export default function KontakPage() {
             href={`https://instagram.com/${SITE.instagram}`}
             icon={<InstagramIcon className="h-[18px] w-[18px]" />}
           />
-          <div>
-            <p className="text-cream-100/70">Lokasi :</p>
-            <p className="mt-1 text-cream-50">{SITE.address}</p>
-          </div>
+          <ContactRow
+          label="Lokasi"
+          value={SITE.address}
+          href={SITE.mapUrl}
+          icon={<MapIcon className="h-[18px] w-[18px]"/>}
+          />
         </div>
 
         <div className="flex items-center justify-center border-t border-white/10 p-10 lg:border-l lg:border-t-0">

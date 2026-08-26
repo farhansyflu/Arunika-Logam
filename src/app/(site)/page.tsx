@@ -18,7 +18,7 @@ export default async function HomePage() {
     <>
       {/* HERO */}
       <Reveal delay={80}>
-      <section className="bg-[#f4f4f4]">
+      <section className="bg-cream">
         <Container className="grid gap-10 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
           <div>
             <h1 className="px-1">ARUNIKA LOGAM</h1>
@@ -83,7 +83,7 @@ export default async function HomePage() {
       </section>
 
       {/* PRODUK TERBARU */}
-      <section className="bg-[#f4f4f4] py-20" id="produkterbaru">
+      <section className="bg-cream py-20" id="produkterbaru">
         <Container>
           <Reveal delay={80}>
           <SectionTitle>Produk Terbaru</SectionTitle>
