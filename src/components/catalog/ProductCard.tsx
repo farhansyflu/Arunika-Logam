@@ -27,7 +27,7 @@ export default function ProductCard({ article }: { article: Article }) {
       </div>
       <div className="flex flex-1 flex-col gap-2 p-5">
         <span className="tag-chip w-fit">{article.category}</span>
-        <h3 className="text-lg leading-snug text-ink-900">{article.title}</h3>
+        <h3 className="text-lg line-clamp-3 leading-snug text-ink-900">{article.title}</h3>
         <p className="line-clamp-3 text-sm text-muted">{article.description}</p>
         <p className="mt-auto pt-2 text-xs text-muted">{formatDate(article.published_at)}</p>
       </div>
