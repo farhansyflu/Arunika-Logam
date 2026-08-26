@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-ink antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm transition-all duration-200 ease-out;
+  }
+  .btn-primary {
+    @apply btn bg-ink-900 text-cream-50 hover:bg-brass-600 active:scale-[0.98];
+  }
+  .btn-outline {
+    @apply btn border border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-cream-50 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn text-ink-900 hover:bg-cream-200;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-white shadow-soft transition-shadow duration-200 hover:shadow-card;
+  }
+
+  .section-title {
+    @apply text-center text-4xl sm:text-5xl font-normal text-ink-900;
+  }
+
+  .tag-chip {
+    @apply inline-flex items-center rounded-full border border-line bg-cream-100 px-3 py-1 text-xs text-muted;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-2.5 text-sm outline-none transition-colors focus:border-brass-400;
+  }
+}
+
+/* ============================================================
+   SPLASH LOADER — tampil sekali saat website pertama kali dibuka
+   Murni CSS (server-rendered), tidak butuh JS, jadi tidak ada
+   flicker/hydration mismatch dan tetap jalan walau JS lambat load.
+   ============================================================ */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  animation: page-loader-fade 1.35s ease forwards;
+}
+
+#page-loader .loader-mark {
+  animation: page-loader-pop 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+#page-loader .loader-dots {
+  margin-top: 18px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+#page-loader .loader-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #a9762e;
+  animation: page-loader-dot 0.9s ease-in-out infinite;
+}
+
+#page-loader .loader-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+#page-loader .loader-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes page-loader-fade {
+  0% { opacity: 1; }
+  65% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+@keyframes page-loader-pop {
+  0% { opacity: 0.01; transform: scale(0.8) translateY(6px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes page-loader-dot {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #page-loader { animation: none; opacity: 0; visibility: hidden; }
+}
+
+/* ============================================================
+   TOP LOADING BAR — dipakai di loading.tsx tiap segment route,
+   otomatis muncul saat Next.js sedang fetch data halaman baru.
+   ============================================================ */
+@keyframes top-bar-grow {
+  0% { width: 0%; opacity: 1; }
+  70% { width: 78%; }
+  100% { width: 92%; opacity: 1; }
+}
+
+.top-loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  z-index: 100;
+  background: linear-gradient(90deg, #a9762e, #d6a452);
+  animation: top-bar-grow 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
