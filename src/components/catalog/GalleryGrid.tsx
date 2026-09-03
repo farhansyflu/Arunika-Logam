@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { X } from "lucide-react";
 import type { GalleryItem } from "@/lib/types";
-import Reveal from "../ui/Reveal";
 
 export default function GalleryGrid({ items }: { items: GalleryItem[] }) {
   const [active, setActive] = useState<GalleryItem | null>(null);

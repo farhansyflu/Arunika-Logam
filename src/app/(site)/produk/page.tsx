@@ -70,9 +70,9 @@ export default async function ProdukPage({
           </div>
         </aside>
 
-        <div>
+        <div className="min-w-0">
           {/* Filter kategori versi mobile (horizontal scroll) */}
-          <div className="mb-6 flex gap-2 overflow-x-auto pb-2 lg:hidden">
+          <div className="mb-6 flex gap-2 min-w-0 overflow-x-auto pb-2 lg:hidden">
             {categories.map((cat) => {
               const active = (categorySlug ?? ALL_CATEGORY_SLUG) === cat.slug && !search;
               return (
